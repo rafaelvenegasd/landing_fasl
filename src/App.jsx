@@ -1,16 +1,22 @@
 import { useState } from "react";
 import {
+  Eye,
+  Facebook,
   HandHeart,
+  Heart,
   HeartHandshake,
   House,
-  Menu,
-  Phone,
-  Users,
-  X,
   Mail,
   MapPin,
-  Facebook,
-  MessageCircle
+  Menu,
+  MessageCircle,
+  Phone,
+  Shield,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  Users,
+  X,
 } from "lucide-react";
 import "./styles/App.css";
 
@@ -47,6 +53,34 @@ const laborItems = [
     title: "Trabajo comunitario",
     text: "Promovemos la participación activa de la comunidad, porque los cambios más duraderos son los que se construyen juntos, desde adentro y con el corazón."
   }
+];
+
+const idearioItems = [
+  {
+    icon: Sparkles,
+    title: "Fundamento Espiritual",
+    text: "Reconocemos y declaramos que nuestra fuerza y guía provienen de la fe. Creemos firmemente en el poder de Dios, en el sacrificio y redención de su Hijo, y en la guía constante del Espíritu Santo como fuente de sabiduría para transformar vidas.",
+  },
+  {
+    icon: Heart,
+    title: "Dignidad Humana",
+    text: "Consideramos que cada persona es una creación valiosa, por lo que brindamos una atención que respeta profundamente sus dimensiones biológicas, psicológicas y espirituales.",
+  },
+  {
+    icon: HandHeart,
+    title: "Amor y Servicio",
+    text: "Nuestra labor no tiene límites porque se inspira en el amor incondicional, buscando siempre el bienestar de niñas, niños, jóvenes, adultos mayores y personas con discapacidad.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Integridad y Ética",
+    text: "Actuamos con transparencia y responsabilidad en la gestión de recursos, manteniendo un compromiso inquebrantable con la verdad y la justicia social.",
+  },
+  {
+    icon: Shield,
+    title: "Protección y Cuidado",
+    text: "Trabajamos en la prevención de la violencia y el abuso, garantizando espacios seguros que permitan el crecimiento pleno de la persona en un ambiente de paz y seguridad emocional.",
+  },
 ];
 
 const facebookUrl = "https://www.facebook.com/fundacionamarsinlimites";
@@ -137,12 +171,9 @@ function App() {
         </section>
 
         <section id="quienes-somos" className="section-padding section-light">
-          <div className="container split">
-            <div className="split-title">
+          <div className="container">
+            <div className="qs-intro">
               <h2>Quiénes somos</h2>
-            </div>
-            <div className="split-content">
-              {/* Este contenido puede actualizarse con el texto oficial del estatuto de la fundación. */}
               <p>
                 Fundación Amar Sin Límites nació del deseo de hacer algo concreto por quienes
                 más lo necesitan. Somos un grupo de personas comprometidas con el bienestar social,
@@ -154,6 +185,57 @@ function App() {
                 escuchada y acompañada. Por eso trabajamos desde la cercanía, con respeto,
                 sin condiciones y sin rendirse.
               </p>
+            </div>
+            <div className="mv-grid">
+              <div className="mv-card">
+                <div className="mv-card-header">
+                  <span className="mv-icon" aria-hidden="true"><Target size={20} /></span>
+                  <span className="mv-label">Misión</span>
+                </div>
+                <p>
+                  Proponer y ejecutar programas de inclusión económica y social dirigidos a grupos
+                  de atención prioritaria y poblaciones en situación de vulnerabilidad. Nuestra labor
+                  se centra en asegurar la restitución de derechos y promover el desarrollo integral
+                  del ser humano en todas sus etapas de vida, bajo la convicción de que el servicio
+                  al prójimo es el reflejo del amor que recibimos.
+                </p>
+              </div>
+              <div className="mv-card mv-card--vision">
+                <div className="mv-card-header">
+                  <span className="mv-icon mv-icon--vision" aria-hidden="true"><Eye size={20} /></span>
+                  <span className="mv-label">Visión</span>
+                </div>
+                <p>
+                  Ser una organización referente en la transformación social y el fortalecimiento
+                  de la estructura familiar. Aspiramos a consolidar una sociedad justa donde cada
+                  individuo, empoderado por sus capacidades y sostenido por la fe, logre una
+                  movilidad social ascendente, erradicando la pobreza y fomentando el bienestar
+                  integral bajo principios de solidaridad y esperanza.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="ideario" className="section-padding">
+          <div className="container">
+            <h2 className="section-title">Principios y Valores</h2>
+            <p className="section-subtitle">
+              El actuar de la Fundación Amar Sin Límites se fundamenta en los siguientes pilares.
+            </p>
+            <div className="ideario-grid">
+              {idearioItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article key={item.title} className="ideario-card fade-in-up">
+                    <div className="ideario-icon" aria-hidden="true">
+                      <Icon size={22} />
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
